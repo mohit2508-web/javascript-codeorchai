@@ -26,3 +26,7 @@ console.log(Object.keys(myobj))
 console.log(Object.values(myobj))
 console.log(Object.entries(myobj))
 console.log(myobj.hasOwnProperty("objname"))
+
+
+const {objname:fame}=myobj  //this is known as object name destructing we change obj name for our eay refernece
+console.log(fame)
