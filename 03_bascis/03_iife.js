@@ -1,0 +1,6 @@
+// IMMEDIATELY INVOKED FUNCTION EXPRESSION////////
+(function chai(){
+console.log("kya chai peoga") // THIS IS USED WHEN WE DO NOT WANT THAT GLOBAL VARIABLES INTEERUPT TO RUNNING THIS FUNCTION
+})()
+
+// Syntax: ()()
