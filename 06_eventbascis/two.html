@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="body">
+    <h1>Chai Aur code</h1>
+    <button class="button" id="start">Start</button>
+    <button  class="button" id="end">Stop</button>
+</body>
+<script>
+    const randomvalues=function(){
+        let max=255;
+        let min=0;
+        let a=Math.floor(Math.random() * (max - min + 1) + min);
+        let b=Math.floor(Math.random() * (max - min + 1) + min);
+        let c=Math.floor(Math.random() * (max - min + 1) + min);
+        const color=`rgb(${a},${b},${c})`
+        return color;
+
+    }
+    const changebackground=function(){
+        const outer=document.getElementsByClassName('body');
+        console.log(document.body.style.backgroundColor = randomvalues())
+    }
+    const button=document.getElementsByClassName("button");
+    let id=null;
+    addEventListener('click',function(e){
+        if(e.target.id==='start'){
+            if(!id){
+         id=setInterval(changebackground,10)
+            }
+            
+        }else{
+            clearInterval(id);
+            console.log("stop")
+            id=null;
+        }
+    })
+    
+</script>
+</html>
