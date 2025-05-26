@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click me</title>
+</head>
+<body class="body">
+    <ul class="mainbox">
+        <li class="boxes" id="red" style="background-color: red;">red box</li>
+        <li class="boxes" id="blue" style="background-color: blue;">blue box</li>
+        <li class="boxes" id="green" style="background-color: green;">green box</li>
+        <li class="boxes" id="black" style="background-color: black; ">black box</li>
+    </ul>
+</body>
+<style>
+    .boxes{
+        height: 50px;
+        width:50px;
+        border: 2px solid greenyellow;
+    }
+</style>
+<script>
+    const item=document.getElementsByClassName('boxes')
+    const body=document.getElementsByClassName('body')
+    addEventListener('keypress',function(e){
+        //    if(e.target.id==='red'){
+        //     document.body.style.backgroundColor=e.target.id;
+        //    }
+        //    if(e.target.id==='blue'){
+        //     document.body.style.backgroundColor=e.target.id;
+        //    }
+        //    if(e.target.id==='green'){
+        //     document.body.style.backgroundColor=e.target.id;
+        //    }
+        //    if(e.target.id==='black'){
+        //     document.body.style.backgroundColor=e.target.id;
+        //    }
+        console.log(e.key )
+    })
+
+</script>
+</html>

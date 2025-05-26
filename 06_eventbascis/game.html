@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reaction Time Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    #keyDisplay {
+      font-size: 48px;
+      margin: 20px;
+    }
+    #reactionTime {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Reaction Time Game</h1>
+  <p>Press the key as soon as it appears!</p>
+  <div id="keyDisplay">Press Start</div>
+  <button onclick="startGame()">Start</button>
+  <div id="reactionTime"></div>
+
+  <script>
+    let targetKey = '';
+let startTime = 0;
+
+function getRandomKey() {
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  return letters[Math.floor(Math.random() * letters.length)];
+}
+
+function startGame() {
+  document.getElementById('reactionTime').textContent = '';
+  targetKey = getRandomKey();
+  document.getElementById('keyDisplay').textContent = `Press "${targetKey}"`;
+
+  startTime = new Date().getTime(); // Start timer
+}
+
+document.addEventListener('keydown', function(event) {
+  if (!targetKey) return;
+
+  if (event.key.toUpperCase() === targetKey) {
+    const endTime = new Date().getTime();
+    const reactionTime = ((endTime - startTime) / 1000).toFixed(3);
+    document.getElementById('reactionTime').textContent = `⏱ Reaction Time: ${reactionTime} seconds`;
+
+    targetKey = ''; // Reset game state
+  }
+});
+
+  </script>
+</body>
+</html>
