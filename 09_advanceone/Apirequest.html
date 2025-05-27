@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request</title>
+</head>
+<body>
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestUrl);
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const data = JSON.parse(this.responseText);
+
+            // Create a heading (h1) element
+            const heading = document.createElement('h1');
+            heading.textContent = `GitHub User: ${data.name}`; // Use user's name
+
+            // Create an image element for avatar
+            const img = document.createElement('img');
+            img.src = data.avatar_url;
+            img.alt = 'GitHub Avatar';
+            img.style.width = '200px';
+            img.style.borderRadius = '50%';
+
+            // Append heading and image to body
+            document.body.appendChild(heading);
+            document.body.appendChild(img);
+        }
+    };
+
+    xhr.send();
+</script>
+</html>
